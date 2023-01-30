@@ -1,1 +1,1 @@
-# [Intall The Master OS Template](../README.md)
+#### [Intall The Master OS Template](../README.md)
