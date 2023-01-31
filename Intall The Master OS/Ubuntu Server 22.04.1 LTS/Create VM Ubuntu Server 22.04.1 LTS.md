@@ -1,4 +1,4 @@
-### [(Back) Ubuntu Server 22.04.1 LTS](./Ubuntu%20Server%2022.04.1%20LTS.md)
+## [(Back) Ubuntu Server 22.04.1 LTS](./Ubuntu%20Server%2022.04.1%20LTS.md)
 #### 1.Create VM in Oracle vm virtualbox
 1.1 กดปุ่ม New
 
