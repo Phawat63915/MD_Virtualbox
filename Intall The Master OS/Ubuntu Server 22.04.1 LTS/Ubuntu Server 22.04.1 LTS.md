@@ -1,14 +1,15 @@
 ## [Intall The Master OS Template](../../README.md)
 Ubuntu Server 22.04.1 LTS
 ### [1.Create VM Ubuntu Server 22.04.1 LTS](./Create%20VM%20Ubuntu%20Server%2022.04.1%20LTS.md)
-#### 3.Setting Ubuntu Server 22.04.1 LTS
+### 3.Setting Ubuntu Server 22.04.1 LTS
++ เตรียมพร้อมเครื่องหลักเพราะหากเรา Clone เราจะได้ไม่ต้องทำใหม่ทุกครั้ง
 #### 3.1 Package update
 + ก่อนอย่างน้อย 1 ครั้งเพื่อพอเครื่องที่ Cloen มาใช้งาน จะได้เป็นรุ่นล่าสุด ไม่ต้องพิมใหม่ทุกครั้ง
 
 ```bash
 sudo apt update -y && sudo apt upgrade -y
 ```
-#### 3.1 Setting Network
+#### 3.2 Setting Network
 + ตั้งค่า fixip เพื่อไม่ให้ DHCP แก้ไข IP ให้เราหรือสุ่มมั่วทุกคั้งที่เราเปิดเครื่อง
 
 3.1.1 เช็กวง IP ก่อน
@@ -43,14 +44,14 @@ network:
 
 ```
 
-#### 3.2 Enable SSH Root Login
+#### 3.3 Enable SSH Root Login
 + ตั้งค่าเพื่อให้สามารถเข้าใช้งานผ่าน SSH ด้วย Root ได้
 
-แก้ไขไฟล์ `/etc/ssh/sshd_config` และให้เขียนเพิ่ม `PermitRootLogin yes` ในบรรทัดสุดท้ายหรือใหม่
+แก้ไขไฟล์ `sshd_config`
 ```bash
 sudo nano /etc/ssh/sshd_config
 ```
-เพิ่มบรรทัดนี้
+เพิ่มบรรทัดนี้ ที่ `/etc/ssh/sshd_config` และให้เขียนเพิ่ม `PermitRootLogin 
 ```/etc/ssh/sshd_config
 PermitRootLogin yes
 ```
