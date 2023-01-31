@@ -19,10 +19,10 @@ sudo apt update -y && sudo apt upgrade -y
 ip a
 ```
 3.1.2 แก้ไขไฟล์ `/etc/netplan/01-netcfg.yaml` และให้เขียนเพิ่มประมาณนี้
-+ enp0s3 และ enp0s8 หรือ enp0s9 คือชื่อ Interface ที่เราได้จากข้อ 3.1.1
-+ dhcp4: หากเป็น true จะได้ IP จาก DHCP หากเป็น false จะได้ IP จาก addresses ที่เรากำหนด
-+ addresses: กำหนด IP และ Subnet ที่เราต้องการให้เครื่องนี้ใช้งาน
-+ optional: หากเป็น true จะไม่เกิด error หากเครื่องนี้ไม่มี Interface นี้ หากเป็น false จะเกิด error หากเครื่องนี้ไม่มี Interface นี้ (**หากต้องกาารให้เครื่องเปิดเร็ว ปรับเป็น true**)
++ **Interface:** enp0s3 และ enp0s8 หรือ enp0s9 คือชื่อ Interface ที่เราได้จากข้อ 3.1.1
++ **dhcp4:** หากเป็น `true` จะได้ IP จาก DHCP หากเป็น `false` จะได้ IP จาก addresses ที่เรากำหนด
++ **addresses:** กำหนด IP และ Subnet ที่เราต้องการให้เครื่องนี้ใช้งาน
++ **optional:** หากเป็น `true` จะไม่เกิด error หากเครื่องนี้ไม่มี Interface นี้ หากเป็น `false` จะเกิด error หากเครื่องนี้ไม่มี Interface นี้ (**หากต้องกาารให้เครื่องเปิดเร็ว ปรับเป็น true**)
 ```bash
 nano /etc/netplan/01-netcfg.yaml
 ```
@@ -54,4 +54,15 @@ sudo nano /etc/ssh/sshd_config
 เพิ่มบรรทัดนี้ ที่ `/etc/ssh/sshd_config` และให้เขียนเพิ่ม `PermitRootLogin 
 ```/etc/ssh/sshd_config
 PermitRootLogin yes
+```
+#### 3.4 Drive Mount
++ หากเราต้องการ ให้ Linux มีการ Mount Drive ต่างๆ ให้เราใช้งาน สามารถทำได้โดยการแก้ไขไฟล์ `/etc/fstab` และเพิ่มบรรทัดต่างๆ ตามที่เราต้องการอย่างเช่น หากต้องให้เพิ่ม Shere Folder ของ Windows มาที่เครื่อง
+แก้ไขไฟล์ `/etc/fstab`
+```bash
+nano /etc/fstab
+```
+
+```bash
+```/etc/fstab
+//192.168.56.1/server_docker /root/phawatv cifs username=administrator,password=IKUDBWicukwktygdukycts,uid=33,gid=33,rw,nounix,iocharset=utf8,file_mode=0777,dir_mode=0777 0 
 ```
