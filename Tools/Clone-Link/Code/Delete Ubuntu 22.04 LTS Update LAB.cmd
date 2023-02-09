@@ -3,6 +3,7 @@
 set /A COUNTER=0
 :loop
 set /A COUNTER=%COUNTER%+1
+RD /S /Q "%VMS_PATH%\%BASELAB_NAME%%COUNTER%"
 DEL /S /Q "%BASELAB_NAME%%COUNTER%.cmd"
 "%VBOXMANAGE_PATH%" unregistervm --delete "%BASELAB_NAME%%COUNTER%"
 if "%COUNTER%"=="%COUNTER_VM%" goto end

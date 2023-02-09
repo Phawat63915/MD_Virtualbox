@@ -11,8 +11,8 @@ IF /I NOT "%3%4"=="" (
     SET PASSWORD=%MASTER_PASSWORD%
 )
 
-"%VBOXMANAGE_PATH%" showvminfo "%BASELAB_NAME%" | findstr /c:"Facility "
-IF %ERRORLEVEL% EQU 1 ( "%VBOXMANAGE_PATH%" startvm "%BASELAB_NAME%" --type headless ) else ( goto end )
+"%VBOXMANAGE_PATH%" showvminfo %BASELAB_NAME% | findstr /c:"Facility "
+IF %ERRORLEVEL% EQU 1 ( "%VBOXMANAGE_PATH%" startvm %BASELAB_NAME% --type headless ) else ( goto end )
 :loop
 FOR /f "delims={" %%a IN ('echo y ^| plink -ssh %USERNAME%@%BASELAB_IP% -pw %PASSWORD% "echo A"') DO IF %%a==A goto end
 goto loop
